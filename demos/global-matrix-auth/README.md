@@ -19,6 +19,17 @@ jenkins:
 ```
 Permissions must be defined **per line**, meaning each line must grant permission to only a single role, and only a single user or group of users.
 
+Since version 3.0 permission string should include type prefix, otherwise you will get warning that your configuration is ambiguous. For example:
+
+```yaml
+jenkins:
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "GROUP:Overall/Read:anonymous"
+        - "USER:Overall/Administer:admin"
+```
+
 ## sample-configuration (project based matrix)
 
 ```yaml
